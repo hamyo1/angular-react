@@ -1,0 +1,20 @@
+{
+
+    "/GetAllDiamonds": {
+      "target": "https://localhost:7087/ManageDiamonds/",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": "GetAllDiamonds"
+      }
+    },
+    "/PostNewDiamond": {
+      "target": "https://localhost:7087/ManageDiamonds/",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": "PostNewDiamond"
+      }
+    }
+
+  }
