@@ -45,13 +45,13 @@ const AddDiamondCompnent = ({setTheArray,diamondsList}:Props) => {
           })
           .then(resp => {
             toast.success('Successfully post New Diamond!');
-            var diamondsList1: DiamondsList=[]
+            var diamondsList: DiamondsList=[]
 
             for (const key in diamondsList) {
-              diamondsList1.push(diamondsList[key]);
+              diamondsList.push(diamondsList[key]);
             }
-            diamondsList1.push(diamond)
-            setTheArray(diamondsList1); // (rendering the react_GridAllDiamondsCompnent again..)
+            diamondsList.push(diamond)
+            setTheArray(diamondsList); // (rendering the react_GridAllDiamondsCompnent again with the new data..)
           })
           .catch(err =>{
             toast.error('error in post New Diamond');
