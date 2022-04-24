@@ -44,7 +44,7 @@ const AddDiamondCompnent = ({setTheArray,diamondsList}:Props) => {
             throw res.statusText;
           })
           .then(resp => {
-            toast.success('Successfully toasted!');
+            toast.success('Successfully post New Diamond!');
             var diamondsList1: DiamondsList=[]
 
             for (const key in diamondsList) {
@@ -53,11 +53,14 @@ const AddDiamondCompnent = ({setTheArray,diamondsList}:Props) => {
             diamondsList1.push(diamond)
             setTheArray(diamondsList1); 
           })
-          .catch(err => alert(`error in postNewDiamond: ${err}`));
+          .catch(err =>{
+            toast.error('error in post New Diamond');
+            console.log(`error in postNewDiamond: ${err}`);
+          } );
       }
     }
     catch (ex) {
-      alert("error in postNewDiamond: invaild prameter ${ex.message}");
+      console.log("error in postNewDiamond: invaild prameter ${ex.message}");
     }
 
   };
