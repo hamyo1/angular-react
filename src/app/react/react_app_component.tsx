@@ -27,6 +27,7 @@ const React_App_Component = () => {
             },
           })
             .then(res => {
+              debugger;
               if(res.ok)
               {
                 return res.json();
@@ -35,9 +36,6 @@ const React_App_Component = () => {
               throw res.statusText;
             })
             .then(resp => {
-              if(resp.errorCode=='500'){
-                throw resp.errorDesc;
-              }
               resp.forEach((element: Diamond) => {
                 diamondsListFromFetch.push(element);
               });
