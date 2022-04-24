@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { Diamond, DiamondsList } from 'src/app/shared/models/diamond.model';
-
+//props..
 interface Props {
   setTheArray:(arg: DiamondsList) => void,
   diamondsList:DiamondsList
@@ -28,7 +28,7 @@ const AddDiamondCompnent = ({setTheArray,diamondsList}:Props) => {
 
   const postNewDiamond: React.FormEventHandler<HTMLFormElement> = (event) => {
     try {
-      event.preventDefault();
+      event.preventDefault();// not rendering this component again helps to the toast messages and why to do it if not nessery?..
       if (clarity != '' && color != '' && list_price != '' && price != '' && shape != '' && size != '') {
         var diamond: Diamond = { clarity: clarity, color: color, list_price: Number(list_price), price: Number(price), shape: shape, size: Number(size) };
         fetch('http://localhost:4200/PostNewDiamond', {
@@ -48,10 +48,10 @@ const AddDiamondCompnent = ({setTheArray,diamondsList}:Props) => {
             var diamondsList1: DiamondsList=[]
 
             for (const key in diamondsList) {
-              diamondsList1.push(diamondsList[key])
+              diamondsList1.push(diamondsList[key]);
             }
             diamondsList1.push(diamond)
-            setTheArray(diamondsList1); 
+            setTheArray(diamondsList1); // (rendering the react_GridAllDiamondsCompnent again..)
           })
           .catch(err =>{
             toast.error('error in post New Diamond');
