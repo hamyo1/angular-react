@@ -7,7 +7,13 @@ interface Props {
 }
 
 const GridAllDiamondsCompnent = ({ diamondsList }: Props) => {
-
+    var columnDefs1= [
+    { headerName: 'clarity', field: 'clarity' },
+    { headerName: 'color', field: 'color' },
+    { headerName: 'list_price', field: 'list_price' },
+    { headerName: 'price', field: 'price' },
+    { headerName: 'shape', field: 'shape' },
+    { headerName: 'size', field: 'size' }];
     function GetAllDiamonds() {
         var rows = [];
         for (const key in diamondsList) {
@@ -20,19 +26,20 @@ const GridAllDiamondsCompnent = ({ diamondsList }: Props) => {
 
 
     return (
-
-        <div className="p-2 border" style={{ backgroundColor: '#cfe2f3' }}>
-            <h4 className="p-2 border text-center">Grid with all diamonds</h4>
-            <div className="row p-2 border center" >
-                <div className="col-lg-2 col-md-6 p-2 border center fw-bold" style={{ backgroundColor: '#7abaf4' }}>Clarity</div>
-                <div className="col-lg-2 col-md-6 p-2 border center fw-bold" style={{ backgroundColor: '#7abaf4' }}>Color</div>
-                <div className="col-lg-2 col-md-6 p-2 border center fw-bold" style={{ backgroundColor: '#7abaf4' }}>List Price</div>
-                <div className="col-lg-2 col-md-6 p-2 border center fw-bold" style={{ backgroundColor: '#7abaf4' }}>Price</div>
-                <div className="col-lg-2 col-md-6 p-2 border center fw-bold" style={{ backgroundColor: '#7abaf4' }}>Shape</div>
-                <div className="col-lg-2 col-md-6 p-2 border center fw-bold" style={{ backgroundColor: '#7abaf4' }}>Size</div>
+        <div className="p-2 border" style={{ backgroundColor: '#cfe2f3'}}>
+                <h4 className="p-2 border text-center">Grid with all diamonds</h4>
+                <div className="row p-2 border center">
+                    <div className="col-lg-2 col-md-6 p-2 border center fw-bold" style={{ backgroundColor: '#7abaf4' }}>Clarity</div>
+                    <div className="col-lg-2 col-md-6 p-2 border center fw-bold" style={{ backgroundColor: '#7abaf4' }}>Color</div>
+                    <div className="col-lg-2 col-md-6 p-2 border center fw-bold" style={{ backgroundColor: '#7abaf4' }}>List Price</div>
+                    <div className="col-lg-2 col-md-6 p-2 border center fw-bold" style={{ backgroundColor: '#7abaf4' }}>Price</div>
+                    <div className="col-lg-2 col-md-6 p-2 border center fw-bold" style={{ backgroundColor: '#7abaf4' }}>Shape</div>
+                    <div className="col-lg-2 col-md-6 p-2 border center fw-bold" style={{ backgroundColor: '#7abaf4' }}>Size</div>
+                </div>
+                <div style={{ backgroundColor: '#cfe2f3' , height: 500,  overflow: 'scroll'}}>
+                    {GetAllDiamonds()}
+                </div>
             </div>
-            {GetAllDiamonds()}
-        </div>
     )
 }
 export default GridAllDiamondsCompnent;
