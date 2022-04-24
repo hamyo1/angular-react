@@ -45,13 +45,14 @@ const AddDiamondCompnent = ({setTheArray,diamondsList}:Props) => {
           })
           .then(resp => {
             toast.success('Successfully post New Diamond!');
-            var diamondsList: DiamondsList=[]
-
+            var newDiamondsList: DiamondsList=[]
+            // building the old array in this compnent.. 
+            //(this is the easy way to do it for small data *not good for big data.. to big data i was rendring again the react_GridAllDiamondsCompnent and from the beginng do there all the fetch to get the data.. *)
             for (const key in diamondsList) {
-              diamondsList.push(diamondsList[key]);
+              newDiamondsList.push(diamondsList[key]);
             }
-            diamondsList.push(diamond)
-            setTheArray(diamondsList); // (rendering the react_GridAllDiamondsCompnent again with the new data..)
+            newDiamondsList.push(diamond);//adding the new elemnt
+            setTheArray(newDiamondsList); // (rendering the react_GridAllDiamondsCompnent again with the new data)
           })
           .catch(err =>{
             toast.error('error in post New Diamond');
