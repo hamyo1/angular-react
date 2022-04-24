@@ -5,6 +5,8 @@ interface Props {
     diamondsList: DiamondsList;
 }
 
+// the source of the data here is from the root component but in better way for big data this is another fetch request (to Statistic api function)
+//the right way in my opinion is to write that inside the db with purcedure or select wuery in the server side..
 const StatisticCompnent = ({ diamondsList }: Props) => {
     var sumPrice: number = 0;
     var minPrice = diamondsList[0].price;
